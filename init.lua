@@ -12,6 +12,38 @@ vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 -- Save undo history
 vim.o.undofile = true
 
+-- Clipboard
+vim.g.clipboard = ''
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy '+',
+    -- ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste '+',
+    -- ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
+
+-- ==========================
+-- Clipboard Keymaps (OSC 52)
+-- ==========================
+
+-- Normal mode: <leader>y yanks the current motion or character to the system clipboard
+vim.keymap.set('n', '<leader>y', '"+y')
+-- Normal mode: <leader>Y yanks the entire current line to the system clipboard
+vim.keymap.set('n', '<leader>Y', '"+yy')
+-- Visual mode: <leader>y yanks the selected text to the system clipboard
+vim.keymap.set('v', '<leader>y', '"+y')
+-- Normal mode: paste after cursor from system clipboard
+vim.keymap.set('n', '<leader>p', '"+p')
+-- Normal mode: paste before cursor from system clipboard
+vim.keymap.set('n', '<leader>P', '"+P')
+-- Visual mode: replace selection with system clipboard content
+vim.keymap.set('v', '<leader>p', '"+p')
+vim.keymap.set('v', '<leader>P', '"+P')
+
 -- Spacing/tabs
 vim.o.expandtab = true
 vim.o.tabstop = 2
@@ -42,9 +74,9 @@ vim.o.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
-end)
+-- vim.schedule(function()
+--   vim.o.clipboard = 'unnamedplus'
+-- end)
 
 -- Enable break indent
 vim.o.breakindent = true
