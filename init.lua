@@ -31,18 +31,17 @@ vim.g.clipboard = {
 -- ==========================
 
 -- Normal mode: <leader>y yanks the current motion or character to the system clipboard
-vim.keymap.set('n', '<leader>y', '"+y')
+vim.keymap.set('n', '<leader>y', '"+y', { desc = '[Y]ank to system clipboard' })
 -- Normal mode: <leader>Y yanks the entire current line to the system clipboard
-vim.keymap.set('n', '<leader>Y', '"+yy')
+vim.keymap.set('n', '<leader>Y', '"+yy', { desc = '[Y]ank line to system clipboard' })
 -- Visual mode: <leader>y yanks the selected text to the system clipboard
-vim.keymap.set('v', '<leader>y', '"+y')
+vim.keymap.set('v', '<leader>y', '"+y', { desc = '[Y]ank to system clipboard' })
 -- Normal mode: paste after cursor from system clipboard
-vim.keymap.set('n', '<leader>p', '"+p')
+vim.keymap.set('n', '<leader>p', '"+p', { desc = '[P]aste from system clipboard' })
 -- Normal mode: paste before cursor from system clipboard
-vim.keymap.set('n', '<leader>P', '"+P')
+vim.keymap.set('n', '<leader>P', '"+P', { desc = '[P]aste before from system clipboard' })
 -- Visual mode: replace selection with system clipboard content
-vim.keymap.set('v', '<leader>p', '"+p')
-vim.keymap.set('v', '<leader>P', '"+P')
+vim.keymap.set('v', '<leader>p', '"+p', { desc = '[P]aste from system clipboard' })
 
 -- Spacing/tabs
 vim.o.expandtab = true
@@ -77,6 +76,8 @@ vim.o.showmode = false
 -- vim.schedule(function()
 --   vim.o.clipboard = 'unnamedplus'
 -- end)
+
+vim.o.shell = '/bin/zsh'
 
 -- Enable break indent
 vim.o.breakindent = true
