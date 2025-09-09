@@ -24,7 +24,7 @@ return {
         return nil
       else
         return {
-          timeout_ms = 500,
+          timeout_ms = 2000,
           lsp_format = 'fallback',
         }
       end
@@ -32,10 +32,10 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       python = { 'isort', 'black' },
-      javascript = { 'eslint_d' },
-      typescript = { 'eslint_d' },
-      javascriptreact = { 'eslint_d' },
-      typescriptreact = { 'eslint_d' },
+      javascript = { 'eslint_d', 'prettier' },
+      typescript = { 'eslint_d', 'prettier' },
+      javascriptreact = { 'eslint_d', 'prettier' },
+      typescriptreact = { 'eslint_d', 'prettier' },
       json = { 'prettier' },
       css = { 'prettier' },
       html = { 'prettier' },

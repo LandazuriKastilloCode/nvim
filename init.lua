@@ -13,16 +13,15 @@ vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 vim.o.undofile = true
 
 -- Clipboard
-vim.g.clipboard = ''
 vim.g.clipboard = {
   name = 'OSC 52',
   copy = {
     ['+'] = require('vim.ui.clipboard.osc52').copy '+',
-    -- ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy '*',
   },
   paste = {
     ['+'] = require('vim.ui.clipboard.osc52').paste '+',
-    -- ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste '*',
   },
 }
 
@@ -42,6 +41,10 @@ vim.keymap.set('n', '<leader>p', '"+p', { desc = '[P]aste from system clipboard'
 vim.keymap.set('n', '<leader>P', '"+P', { desc = '[P]aste before from system clipboard' })
 -- Visual mode: replace selection with system clipboard content
 vim.keymap.set('v', '<leader>p', '"+p', { desc = '[P]aste from system clipboard' })
+
+vim.keymap.set('n', '<leader>yr', function()
+  vim.fn.setreg('+', vim.fn.expand '%')
+end, { desc = '[Y]ank [R]elative path' })
 
 -- Spacing/tabs
 vim.o.expandtab = true
@@ -156,6 +159,17 @@ end, { desc = 'Go to previous [D]iagnostic with float' })
 vim.keymap.set('n', ']d', function()
   vim.diagnostic.jump { count = 1, float = true }
 end, { desc = 'Go to next [D]iagnostic with float' })
+
+-- Toggle diagnostics on/off for the current buffer
+vim.keymap.set('n', '<leader>td', function()
+  local enabled = vim.diagnostic.is_enabled(bufnr)
+  vim.diagnostic.enable(not enabled)
+  if enabled then
+    print 'Diagnostics disabled'
+  else
+    print 'Diagnostics enabled'
+  end
+end, { desc = '[T]oggle [D]iagnostics' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
