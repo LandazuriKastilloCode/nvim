@@ -59,6 +59,7 @@ return {
         map('n', '<leader>hD', function()
           gitsigns.diffthis '@'
         end, { desc = 'Git [H]unk [D]iff Against Last Commit' })
+        map('n', '<leader>ho', '<cmd>diffoff<cr>', { desc = 'Turn [O]ff diff' })
 
         -- Toggles
         map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = 'Git [T]oggle [B]lame Line' })

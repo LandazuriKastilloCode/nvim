@@ -12,7 +12,10 @@ return {
     vim.keymap.set('n', '<leader>gs', neogit.open, {
       silent = true,
       noremap = true,
-      desc = 'Open Neogit',
+      desc = 'Open Neogit [Status]',
     })
+    vim.keymap.set('n', '<leader>gh', '<cmd>DiffviewOpen<cr>', { desc = 'Diff against [H]ead' })
+    vim.keymap.set('n', '<leader>gf', '<cmd>DiffviewFileHistory --follow %<cr>', { desc = 'Diff [F]ile history ' })
+    vim.keymap.set('n', '<leader>gq', '<cmd>DiffviewClose<CR>', { desc = '[Q]uit diffview' })
   end,
 }

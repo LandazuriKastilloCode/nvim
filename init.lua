@@ -9,6 +9,9 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 
+-- enable wrapping
+vim.opt.wrap = true
+
 -- Save undo history
 vim.o.undofile = true
 
