@@ -47,11 +47,11 @@ return {
       { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "[G]it [B]ranches" },
       { "<leader>gl", function() Snacks.picker.git_log() end, desc = "[G]it [L]og" },
       { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "[G]it [L]og Line" },
-      { "<leader>gs", function() Snacks.picker.git_status() end, desc = "[G]it [S]tatus" },
       { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "[G]it [S]tash" },
       { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "[G]it [D]iff (Hunks)" },
 
       -- Search / Grep
+      { "<leader>st", function() Snacks.picker.git_status() end, desc = "[S]earch [T]ouched files" },
       { "<leader>sp", function() Snacks.picker.projects() end, desc = "[S]earch [P]rojects" },
       { "<leader>sn", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "[S]earch [N]eovim files" },
       { "<leader>sf", function() Snacks.picker.files() end, desc = "[S]earch [F]iles" },
@@ -75,17 +75,17 @@ return {
       { "<leader>sm", function() Snacks.picker.marks() end, desc = "[S]earch [M]arks" },
       { "<leader>sM", function() Snacks.picker.man() end, desc = "[S]earch [M]an Pages" },
       { "<leader>sq", function() Snacks.picker.qflist() end, desc = "[S]earch [Q]uickfix List" },
-      { "<leader>sR", function() Snacks.picker.resume() end, desc = "[S]earch [R]esume" },
+      { "<leader>sr", function() Snacks.picker.resume() end, desc = "[S]earch [R]esume" },
       { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "[S]earch [C]olorschemes" },
 
       -- LSP
-      { "gd", function() Snacks.picker.lsp_definitions() end, desc = "LSP [G]oto Definition" },
-      { "gD", function() Snacks.picker.lsp_declarations() end, desc = "LSP [G]oto Declaration" },
-      { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "[L]SP References" },
-      { "gI", function() Snacks.picker.lsp_implementations() end, desc = "[L]SP Goto Implementation" },
-      { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "[L]SP Type Definition" },
-      { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "[L]SP Symbols" },
-      { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "[L]SP Workspace Symbols" },
+      { "grd", function() Snacks.picker.lsp_definitions() end, desc = "[G]oto LSP Definition" },
+      { "grD", function() Snacks.picker.lsp_declarations() end, desc = "[G]oto LSP Declaration" },
+      { "grr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "[G]oto [L]SP References" },
+      { "grI", function() Snacks.picker.lsp_implementations() end, desc = "[G]oto [L]SP Implementation" },
+      { "grt", function() Snacks.picker.lsp_type_definitions() end, desc = "[G]oto LSP [t]ype definition" },
+      { "<leader>grs", function() Snacks.picker.lsp_symbols() end, desc = "[G]oto LSP [S]ymbols" },
+      { "<leader>grS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "[G]oto LSP workspace [S]ymbols" },
 
       -- Other
       { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
