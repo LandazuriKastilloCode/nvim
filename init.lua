@@ -45,9 +45,9 @@ vim.keymap.set('n', '<leader>P', '"+P', { desc = '[P]aste before from system cli
 -- Visual mode: replace selection with system clipboard content
 vim.keymap.set('v', '<leader>p', '"+p', { desc = '[P]aste from system clipboard' })
 
-vim.keymap.set('n', '<leader>yr', function()
+vim.keymap.set('n', '<leader>r', function()
   vim.fn.setreg('+', vim.fn.expand '%')
-end, { desc = '[Y]ank [R]elative path' })
+end, { desc = 'Yank [R]elative path' })
 
 -- Spacing/tabs
 vim.o.expandtab = true

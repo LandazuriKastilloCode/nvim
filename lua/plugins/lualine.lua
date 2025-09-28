@@ -5,11 +5,11 @@ return {
     theme = 'dracula',
     tabline = {
       lualine_a = {},
-      lualine_b = {},
-      lualine_c = { 'filename' },
+      lualine_b = { 'buffers' },
+      lualine_c = {},
       lualine_x = {},
       lualine_y = {},
-      lualine_z = {},
+      lualine_z = { 'tabs' },
     },
   },
 }
