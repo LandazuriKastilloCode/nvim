@@ -19,6 +19,9 @@ return {
     picker = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = true },
+    scratch = {
+      ft = 'markdown',
+    },
     scroll = { enabled = false },
     statuscolumn = { enabled = true },
     terminal = { enabled = false },
@@ -87,6 +90,10 @@ return {
       { "grt", function() Snacks.picker.lsp_type_definitions() end, desc = "[G]oto LSP [t]ype definition" },
       { "<leader>grs", function() Snacks.picker.lsp_symbols() end, desc = "[G]oto LSP [S]ymbols" },
       { "<leader>grS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "[G]oto LSP workspace [S]ymbols" },
+
+      -- Obsidian 
+      { "<leader>so", function() Snacks.picker.files({ cwd = vim.fn.expand('~/vaults') }) end, desc = "[S]earch [O]bsidian" },
+      { "<leader>sO", function() Snacks.picker.grep({ cwd = vim.fn.expand('~/vaults') }) end, desc = "[S]earch [O]bsidian grep" },
 
       -- Other
       { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },

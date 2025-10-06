@@ -46,8 +46,12 @@ vim.keymap.set('n', '<leader>P', '"+P', { desc = '[P]aste before from system cli
 vim.keymap.set('v', '<leader>p', '"+p', { desc = '[P]aste from system clipboard' })
 
 vim.keymap.set('n', '<leader>r', function()
-  vim.fn.setreg('+', vim.fn.expand '%')
+  vim.fn.setreg('+', vim.fn.expand '%:.')
 end, { desc = 'Yank [R]elative path' })
+
+vim.keymap.set('n', '<leader>R', function()
+  vim.fn.setreg('+', vim.fn.expand '%:p')
+end, { desc = 'Yank [R]oot (absolute) path' })
 
 -- Spacing/tabs
 vim.o.expandtab = true
@@ -145,6 +149,9 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
+vim.keymap.set('n', '<leader>ba', function()
+  vim.cmd 'bufdo bd'
+end, { desc = '[B]uffers delete [A]ll' })
 -- End Custom
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
