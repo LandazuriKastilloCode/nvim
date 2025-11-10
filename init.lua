@@ -138,6 +138,8 @@ vim.o.confirm = true
 --  See `:help vim.keymap.set()`
 --
 --  Custom
+vim.o.winborder = 'rounded'
+--  Move selected line / block of text in visual mode
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 

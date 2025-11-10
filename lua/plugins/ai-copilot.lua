@@ -6,6 +6,10 @@ return {
       suggestion = {
         auto_trigger = true,
       },
+      filetypes = {
+        erl = false,
+        erlang = false,
+      },
     }
   end,
 }
